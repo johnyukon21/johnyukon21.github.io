@@ -1,6 +1,4 @@
-# Connecting to the Bitcoin Network
-
-**WARNING: THIS DOCUMENT IS STILL BEING REVIEWED and might contain inaccuracies. Please send any  feedback to johnyukon21 at protonmail dot com**
+# Connecting to the Bitcoin Network (DRAFT)
 
 ### Context & Definitions:
 For the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Application" are defined as follows:
