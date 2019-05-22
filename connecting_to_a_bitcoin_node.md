@@ -4,7 +4,7 @@
 
 
 ### Context & Definitions:
-This document assumes basic knowledge of the Bitcoin. There  are many  ways to define and describe the various componenets of Bitcoin, but for the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Application" are defined as follows:
+This document assumes basic knowledge of Bitcoin. There  are many  ways to define and describe the various componenets of Bitcoin, but for the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Application" are defined as follows:
 
 **Bitcoin Node ("node"):** an application running the [reference implementation of the consensus code](https://github.com/bitcoin/bitcoin) to talk to the peer to peer network to arrive at consensus with the rest  of the nodes on the state of the blockchain and exposes the data on the blockchain to other systems/programs. Once a node has the latest state of the blockchain, it is ready to expose the data in the blockchain (the base data layer) to any application that has the ablity connect to the node. The data on the blockchain is usually indexed further by the node to allow for quick queries instead of having to scan the blockchain for every query. 
 
