@@ -4,9 +4,10 @@
 **WARNING: THIS DOCUMENT IS STILL BEING REVIEWED and might contain inaccuracies. Please send any  feedback to johnyukon21 at protonmail dot com**
 
 <h3> Context & Definitions:</h3>
+ <p>
 For the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Application" are defined as follows:
 <br/>
-<bold>Bitcoin Node ("node"):</bold> an application running the [reference implementation of the consensus code](https://github.com/bitcoin/bitcoin) to talk to the peer to peer network to arrive at consensus with the rest  of the nodes on the state of the blockchain and exposes the data on the blockchain to other systems/programs. Once a node has the latest state of the blockchain and validated it, it is ready to expose the data in the blockchain (the base data layer) to any application that has the ablity connect to the node. The data on the blockchain is usually indexed further by the node to allow for quick queries instead of having to scan the blockchain for every query. 
+<bold>Bitcoin Node ("node"):</bold> an application running the <a href="https://github.com/bitcoin/bitcoin">reference implementation of the consensus code</a> to talk to the peer to peer network to arrive at consensus with the rest  of the nodes on the state of the blockchain and exposes the data on the blockchain to other systems/programs. Once a node has the latest state of the blockchain and validated it, it is ready to expose the data in the blockchain (the base data layer) to any application that has the ablity connect to the node. The data on the blockchain is usually indexed further by the node to allow for quick queries instead of having to scan the blockchain for every query. 
 <br/>
 <bold>Bitcoin Application ("application"):</bold> an application that connects to a Bitcoin node via some interface (more on this below) to read the blockchain data or broadcast transactions eg. a wallet. 
 <br/>
@@ -19,8 +20,10 @@ Any application that needs to interact with Bitcoin will have to connect to a no
 <br/>
 The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run), dedicated Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme. 
 <br/>
+</p>
 <h3> Plugging into Bitcoin:</h3>
 <h4> P2P</h4>
+<p>
 One of the interfaces into a Bitcoin node is the peer to peer port (usually 8333) which external applications can query using 
 the [Bitcoin Peer to Peer protocol](https://en.bitcoin.it/wiki/Protocol_documentation). This interface is usually used by nodes to communicate to each other to propoagte blocks and transactions. Usually applications connect to the p2p interface only for broadcasting transactions. Other than that, this interface is not powerful enough to be used by applications like wallets or block explorers.
 <br/>
