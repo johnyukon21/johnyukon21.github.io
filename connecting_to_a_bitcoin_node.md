@@ -38,4 +38,4 @@ protocol and by connecting to the JSON-RPC interface of a full node running on t
 TODO
 
 ### Projects
-https://github.com/johnyukon21/btc-cli/tree/development (an experimental client of talking to a node via p2p, RPC and stratum)
+[btc-cli](https://github.com/johnyukon21/btc-cli/tree/development) - an experimental client of talking to a node via p2p, RPC and stratum
