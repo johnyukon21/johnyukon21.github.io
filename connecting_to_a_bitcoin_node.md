@@ -1,4 +1,4 @@
-# Plugging your Application to the Bitcoin Network
+# Connecting to the Bitcoin Network
 
 **WARNING: THIS DOCUMENT IS STILL A DRAFT AND IS BEING REVIEWED. Please send any  feedback to johnyukon21 at protonmail dot com**
 
