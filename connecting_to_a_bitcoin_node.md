@@ -1,20 +1,22 @@
 # Connecting to the Bitcoin Network (DRAFT)
 
-### Context & Definitions:
+This document explores the different ways in which an application can plug into the Bitcoin network. 
+
+### Definitions:
 For the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Application" are defined as follows:
 
 **Bitcoin Node ("node"):** an application running the [reference implementation of the consensus code](https://github.com/bitcoin/bitcoin) to talk to the peer to peer network to arrive at consensus with the rest  of the nodes on the state of the blockchain and exposes the data on the blockchain to other systems/programs. Once a node has the latest state of the blockchain and validated it, it is ready to expose the data in the blockchain (the base data layer) to any application that has the ablity connect to the node. The data on the blockchain is usually indexed further by the node to allow for quick queries instead of having to scan the blockchain for every query. 
 
 **Bitcoin Application ("application"):** an application that connects to a Bitcoin node via some interface (more on this below) to read the blockchain data or broadcast transactions eg. a wallet. 
 
+###  Plugging into Bitcoin:
 Any application that needs to interact with Bitcoin will have to connect to a node in one of the following ways:
 1. Connect to a dedicated endpoint for a bitcoin node that is run by the application user and trusted by the  user. 
 2. Connect to a dedicated endpoint for a bitcoin node service that is run by a third party. eg Trezor web wallet connects to backend nodes run by Trezor 
 3. Use an SPV scheme like [BIP37](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki) or [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki) to connect to random nodes on the Bitcoin P2P network.
 
-The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run), dedicated Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme. 
+The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run), dedicated Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme. Below we explore 3 commons ways to communicate to a Bitcoin node.
 
-###  Plugging into Bitcoin:
 #### P2P
 One of the interfaces into a Bitcoin node is the peer to peer port (usually 8333) which external applications can query using 
 the [Bitcoin Peer to Peer protocol](https://en.bitcoin.it/wiki/Protocol_documentation). This interface is usually used by nodes to communicate to each other to propoagte blocks and transactions. Usually applications connect to the p2p interface only for broadcasting transactions. Other than that, this interface is not powerful enough to be used by applications like wallets or block explorers.
@@ -33,7 +35,7 @@ overlay protocol like stratum. The [stratum protocol](http://docs.electrum.org/e
 protocol and by connecting to the JSON-RPC interface of a full node running on the same host as the electrum server, via the loopback address, it exposes the blockchain data via the stratum protocol APIs for the application to connect to over the wire. So a user can run an electrum server along side a bitcoin node and make the node available for queries on the network and remote appications can call in. 
 
 ### Conclusion
-TODO
+For remote applications, using an overlay protocol like stratum seems to be the simplest and safest way to interact with a Bitcoin Node. In the next document, we will exploring more into how to build application that "speak" staratm and can connect to an electrum server. 
 
 ### Projects
 [btc-cli](https://github.com/johnyukon21/btc-cli/tree/development) - an experimental client of talking to a node via p2p, RPC and stratum
