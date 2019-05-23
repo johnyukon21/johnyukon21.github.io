@@ -5,7 +5,7 @@ This document explores the different ways in which an application can plug into 
 ### Definitions:
 For the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Application" are defined as follows:
 
-**Bitcoin Node ("node"):** an application running the [reference implementation of the consensus code](https://github.com/bitcoin/bitcoin) to talk to the peer to peer network to arrive at consensus with the rest  of the nodes on the state of the blockchain and exposes the data on the blockchain to other systems/programs. Once a node has the latest state of the blockchain and validated it, it is ready to expose the data in the blockchain (the base data layer) to any application that has the ablity connect to the node. The data on the blockchain is usually indexed further by the node to allow for quick queries instead of having to scan the blockchain for every query. 
+**Bitcoin Node ("node"):** a running instance of the [reference implementation of the consensus code](https://github.com/bitcoin/bitcoin) that talks to the Bitcoin peer to peer network to arrive at consensus with the rest  of the nodes on the state of the blockchain, index the blockchain data and exposes it to other systems/programs that can connect to the node and query it. 
 
 **Bitcoin Application ("application"):** an application that connects to a Bitcoin node via some interface (more on this below) to read the blockchain data or broadcast transactions eg. a wallet. 
 
@@ -13,7 +13,7 @@ For the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Applica
 Any application that needs to interact with Bitcoin will have to connect to a node in one of the following ways:
 1. Connect to a dedicated endpoint for a bitcoin node that is run by the application user and trusted by the  user. 
 2. Connect to a dedicated endpoint for a bitcoin node service that is run by a third party. eg Trezor web wallet connects to backend nodes run by Trezor 
-3. Use an SPV scheme like [BIP37](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki) or [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki) to connect to random nodes on the Bitcoin P2P network.
+3. Use an SPV scheme like [BIP37](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki)(eg BreadWallet) or [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki)(eg Wasabi) to connect to random nodes on the Bitcoin P2P network.
 
 The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run), dedicated Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme. Below we explore 3 commons ways to communicate to a Bitcoin node.
 
