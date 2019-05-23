@@ -36,7 +36,9 @@ overlay protocol like stratum. The [stratum protocol](http://docs.electrum.org/e
 protocol and by connecting to the JSON-RPC interface of a full node running on the same host as the electrum server, via the loopback address, it exposes the blockchain data via the stratum protocol APIs for the application to connect to over the wire. So a user can run an electrum server along side a bitcoin node and make the node available for queries on the network and remote appications can call in. 
 
 ### Conclusion
-For remote applications, using the p2p network (for broadcasting transaction or for using an SPV scheme) or an overlay protocol like stratum (if the p2p interface is not powerful enough) to connect to a trusted node, seems to be the simplest, the most sovereign and the safest way to interact with a Bitcoin Node. 
+For bitcoin applications that dont have full node accessible via loopback, using the p2p network (for broadcasting transaction or for using an SPV scheme) or an overlay protocol like stratum (if the p2p interface is not powerful enough) to connect to a trusted node, seems to be the simplest, the most sovereign and the safest way to interact with a Bitcoin Node.
+
+If there is a node running on the same host, the same can be accomplished by directly interacting with JSON-RPC port or the p2p port via the loopback address.
 
 ### Projects
 [btc-cli](https://github.com/johnyukon21/btc-cli/tree/development) - an experimental client of talking to a node via p2p, RPC and stratum
