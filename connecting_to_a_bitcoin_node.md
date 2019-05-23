@@ -16,7 +16,9 @@ Any application that needs to interact with Bitcoin will have to connect to a no
 2. Connect to a dedicated endpoint for a bitcoin node service that is run by a third party. eg Trezor web wallet connects to backend nodes run by Trezor 
 3. Use an SPV scheme like [BIP37](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki)(eg BreadWallet) or [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki)(eg Wasabi) to connect to random nodes on the Bitcoin P2P network.
 
-The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run), dedicated Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme. Below we explore 3 commons ways to communicate to a Bitcoin node.
+The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run) Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme on random nodes on the network. 
+
+Below we explore 3 commons ways to communicate to a Bitcoin node.
 
 #### P2P
 One of the interfaces into a Bitcoin node is the peer to peer port (usually 8333) which external applications can query using 
@@ -36,9 +38,9 @@ overlay protocol like stratum. The [stratum protocol](http://docs.electrum.org/e
 protocol and by connecting to the JSON-RPC interface of a full node running on the same host as the electrum server, via the loopback address, it exposes the blockchain data via the stratum protocol APIs for the application to connect to over the wire. So a user can run an electrum server along side a bitcoin node and make the node available for queries on the network and remote appications can call in. 
 
 ### Conclusion
-For bitcoin applications that dont have full node accessible via loopback, using the p2p network (for broadcasting transaction or for using an SPV scheme) or an overlay protocol like stratum (if the p2p interface is not powerful enough) to connect to a trusted node, seems to be the simplest, the most sovereign and the safest way to interact with a Bitcoin Node.
+For bitcoin applications that dont have full node accessible via loopback, using the p2p network (for broadcasting transaction or for using an SPV scheme), or an overlay protocol like stratum (if the p2p interface is not powerful enough) to connect to a trusted node, seems to be the simplest, the most sovereign and the safest way to interact with a Bitcoin Node.
 
-If there is a node running on the same host, the same can be accomplished by directly interacting with JSON-RPC port or the p2p port via the loopback address.
+If there is a node running on the same host or the same private network as the application, the same can be accomplished by directly interacting with JSON-RPC port or the p2p port of the node.
 
 ### Projects
 [btc-cli](https://github.com/johnyukon21/btc-cli/tree/development) - an experimental client of talking to a node via p2p, RPC and stratum
