@@ -4,7 +4,7 @@
 This document explores the different ways in which an application can plug into the Bitcoin network. 
 
 ### Definitions:
-For the purposes of this document, the terms "Bitcoin Node" and "Bitcoin Application" are defined as follows:
+For the purposes of this document, the terms *Bitcoin Node* and *Bitcoin Application* are defined as follows:
 
 **Bitcoin Node ("node"):** a running instance of the [reference implementation of the consensus code](https://github.com/bitcoin/bitcoin) that talks to the Bitcoin peer to peer network to arrive at consensus with the rest  of the nodes on the state of the blockchain, index the blockchain data and exposes it to other systems/programs that can connect to the node and query it. 
 
