@@ -1,5 +1,6 @@
 # Connecting to the Bitcoin Network (DRAFT)
 
+### What is this?
 This document explores the different ways in which an application can plug into the Bitcoin network. 
 
 ### Definitions:
