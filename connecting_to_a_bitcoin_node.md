@@ -1,3 +1,5 @@
+<div style="text-align: justify">
+  
 # Connecting to the Bitcoin Network (DRAFT)
 
 ### Purpose
