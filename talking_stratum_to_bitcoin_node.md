@@ -1,4 +1,4 @@
-# The State of Stratum
+# The State of Stratum (DRAFT)
 
 ### Purpose
 
@@ -6,7 +6,7 @@
 
 ### Why use Stratum?
 
-### Implementations:
+### Implementations
 
 #### Electrum Servers
 https://github.com/spesmilo/electrum-server
