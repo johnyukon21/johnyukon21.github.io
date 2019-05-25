@@ -1,3 +1,5 @@
+<div>
+
 # Connecting to the Bitcoin Network (DRAFT)
 
 ### Purpose
@@ -44,3 +46,5 @@ If there is a node running on the same host or the same private network as the a
 
 ### Projects
 [btc-cli](https://github.com/johnyukon21/btc-cli/tree/development) - an experimental client of talking to a node via p2p, RPC and stratum
+
+</div>
