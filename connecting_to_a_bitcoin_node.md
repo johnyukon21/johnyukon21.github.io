@@ -16,7 +16,9 @@ Any application that needs to interact with Bitcoin will have to connect to a no
 2. Connect to a dedicated endpoint for a bitcoin node service that is run by a third party. eg Trezor web wallet connects to backend nodes run by Trezor 
 3. Use an SPV scheme like [BIP37](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki)(eg BreadWallet) or [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki)(eg Wasabi) to connect to random nodes on the Bitcoin P2P network.
 
+<div style="text-align: justify"> 
 The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run) Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme on random nodes on the network. 
+</div>
 
 Below we explore 3 commons ways to communicate to a Bitcoin node.
 
