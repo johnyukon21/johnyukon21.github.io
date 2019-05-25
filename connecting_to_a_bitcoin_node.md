@@ -1,4 +1,4 @@
-<div markdown=1>
+<div style="text-align: justify" markdown=1>
 
 # Connecting to the Bitcoin Network (DRAFT)
 
