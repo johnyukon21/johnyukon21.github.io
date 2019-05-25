@@ -31,7 +31,7 @@ The Bitcoin node reference implementation exposes a [JSON-RPC interface](https:/
 There are however some considerations if the RPC interface is being exposed on the network for a remote application to call
 into a Bitcoin node. Firstly, it is not safe to expose the RPC port on the internet as the data is transmitted without encryption on the wire and the interface does not have any DDOS protections. It is also important to note that if you are running a full node with the bitcoin-qt wallet, these RPC commands  essentially gives an interface into the wallet as well. 
 
-If the RPC interface is being exposed only to specific instances of client applications one option might be to tunnel ["with SSH or stunnel which will provide a secure, authenticated path without exposing the socket any further than localhost"](https://en.bitcoin.it/wiki/Enabling_SSL_on_original_client_daemon) or to restrict the application and the node within in private network.
+If the RPC interface is being exposed only to specific instances of client applications one option might be to tunnel ["with SSH or stunnel which will provide a secure, authenticated path without exposing the socket any further than localhost"](https://en.bitcoin.it/wiki/Enabling_SSL_on_original_client_daemon) or to restrict the application and the node within a private network.
 
 #### Overlay Protocol on JSON-RPC
 To overcome the problems mentioned above with exposing the JSON-RPC interface over the network, a common solution is to use an
