@@ -16,18 +16,14 @@ Any application that needs to interact with Bitcoin will have to connect to a no
 2. Connect to a dedicated endpoint for a bitcoin node service that is run by a third party. eg Trezor web wallet connects to backend nodes run by Trezor 
 3. Use an SPV scheme like [BIP37](https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki)(eg BreadWallet) or [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki)(eg Wasabi) to connect to random nodes on the Bitcoin P2P network.
 
-<div style="text-align: justify"> 
 The rest of this documents explores the different ways for an application to interact with a node specifically in the scenario where there is a trusted (user run) Bitcoin node. Although it is out of the scope of this document, it is worth noting that this is the most private and sovereign way to use a Bitcoin application and there is extensive literature available on the privacy and sovereignty concerns with using a node run by a third party or using the SPV scheme on random nodes on the network. 
-</div>
 
 Below we explore 3 commons ways to communicate to a Bitcoin node.
 
 #### P2P
-<div style="text-align: justify"> 
 One of the interfaces into a Bitcoin node is the peer to peer port (usually `8333`) which external applications can query using the [Bitcoin Peer to Peer protocol](https://en.bitcoin.it/wiki/Protocol_documentation). This interface is usually used by nodes to communicate to each other to propoagte blocks and transactions. Usually applications connect to the p2p interface only for broadcasting transactions or if you are using an SPV scheme. An application can use the SPV scheme to connect to either a random node on the network or a dedicated trusted node (eg Green). In the latter case, it is worth noting that in reality the application has the benefits of running a full node even though it is using an SPV scheme to communicate to the node. 
 
 One additional layer of privacy to add on when connecting to the p2p port of a full node is to expose the node over TOR and have the application connect to it over TOR. 
-</div>
 #### JSON-RPC
 The Bitcoin node reference implementation exposes a [JSON-RPC interface](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list) (usually at port `8332`) which applications can query. When an application runs on the same host as the Bitcoin node, it can talk to the JSON-RPC interface using the loopback address. 
 
