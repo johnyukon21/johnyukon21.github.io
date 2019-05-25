@@ -1,4 +1,4 @@
-<div>
+<div markdown=1>
 
 # Connecting to the Bitcoin Network (DRAFT)
 
