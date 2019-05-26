@@ -45,6 +45,8 @@ There are a number of plug and play devices that come with different types of Bi
 * [Dojo](https://samouraiwallet.com/dojo)
 * [Bitseed](https://bitseed.org/product/bitseed-3/)
 
+TODO: expand further on each of these
+
 ### The Anatomy of a Bitcoin Client
 A *Bitcoin Client* is defined as a software library that provides the programatic primitives for a consuming application to connect to and interact with a *Bitcoin Server*. Some features that a Bitcoin Client should provide are:
 
