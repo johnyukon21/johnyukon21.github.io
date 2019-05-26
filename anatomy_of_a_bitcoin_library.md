@@ -1,61 +1,64 @@
 #  A Client-Server Model for Bitcoin (DRAFT)
 
 ### Purpose
-The purpose of this document is to visualize Bitcoin through a client server paradigm where the server is a Bitcoin Node run sovereignly and the client is an application built using an SDK in whatever language the SDK is available in (similar to an AWS service and client SDK, but in the case of Bitcoin the client connects to the user's node and not a centralized server). We explore the anatomy of a Bitcoin Server and Bitcoin Client. 
+The purpose of this document is to look at Bitcoin Nodes and applications through a client-server paradigm where the server is a "wrapper" around a Bitcoin Node and the client is an application built using an SDK in whatever language/platform the SDK is available in. (Think about this as similar to an AWS service and client SDK, but in the case of Bitcoin, the server is run by the users of the client application and is not a centralized server). Later in this document, we explore the anatomy of a Bitcoin Server and Bitcoin Client and look at some common implementations. 
 
-For need of connection see other doc: 
-Have an open standard for the APIs which
+For more context on how and why Bitcoin Applications needs to connect and interact with a Bitcoin Node, see the [writeup on connecting to a bitcoin node](https://github.com/johnyukon21/johnyukon21.github.io/blob/master/connecting_to_a_bitcoin_node.md)
+
+We also look at how the industry can move to towards an open standard for the client server interaction with the goal of 
 1. make development easy for client and server side
 2. make fullnode deployment and usage easy and intiutive 
 
-Note that this is not a new idea but just an attempt to provide some common verbage for building tools around this paradigm.
-
 ### The Anatomy of a Bitcoin Server
+A *Bitcoin Server* is defined as an application that runs alongside a Bitcoin Node and exposes the blockchain data on the node through APIs accessible through the network. Some features that a Bitcoin Server should provide are:
 
-A *Bitcoin Server* is defined as an application that runs alongside a Bitcoin Node, that provides exposes the functions of the node through APIs accessible through the network. Some features that any Bitcoin Server should provide are:
-
-* DDOS protection
 * Authentication
-* Encryption/TOR
-* Secure APIs
-* Indexing
+* DDOS protection
+* Encrypted communication/TOR
+* Secure/Hardened APIs
+* Data Indexing
 * Disoverability/TOR
 
 #### Implementations
-Electrum
-Libbitcoin
+The following are the common implementations of a Bitcoin Server:
 
-#### Hardware
-* NODL
-* Shift
-* Casa - ?
-* Dojo - ?
-* Bitseed - ?
+* [Electrum](https://electrum.org/#home) - there are multiple implementations of the electrum server that implements the Stratum protocol. Clients to can connect to electrum servers and access the underlying Bitcoin Node. 
+  * [electrum-server](https://github.com/spesmilo/electrum-server) 
+  * [electrumx](https://github.com/kyuupichan/electrumx/)
+  * [electrum-personal-server](https://github.com/chris-belcher/electrum-personal-server)
+  * [electrs](https://github.com/romanz/electrs)
+* [Libbitcoin](https://libbitcoin.org) - libbitcoin in a full re-implementation of the consensus rules but also comes built in which a Bitcoin Server that "exposes a custom query TCP API built based on the ZeroMQ networking stack. It supports server, and optionally client, identity certificates and wire encryption via CurveZMQ and the Sodium cryptographic library and supports simple and advanced scenarios, including stealth payment queries." 
+
+#### Hardware Nodes
+There are a number of plug and play devices that come with different types of Bitcoin Servers installed.
+
+* [NODL](http://nodl.it) 
+* [BitBox Base](https://github.com/digitalbitbox/bitbox-base)
+* [Casa Node](https://keys.casa/lightning-bitcoin-node/)
+* [Dojo](https://samouraiwallet.com/dojo)
+* [Bitseed](https://bitseed.org/product/bitseed-3/)
 
 ### The Anatomy of a Bitcoin Client
 
-A *Bitcoin Client* is defined as a software library that provides the progamatic primitives for a consuming application to connect to and interact with a *Bitcoin Server*. 
+A *Bitcoin Client* is defined as a software library that provides the progamatic primitives for a consuming application to connect to and interact with a *Bitcoin Server*. Some features that a Bitcoin Client should provide are:
 
-1. Key Management Module ("wallet")
-2. P2P/Serilization/Deserilization Module/mempool
-3. Node communication: JSON-RPC/Stratum Module
-4. Utilities
-
-Cryptographic library
-TCP/IP
+1. Key Generation and Management Utilities ("wallet")
+2. P2P/Serilization/Deserilization, Mempool interaction
+3. Node Communication: JSON-RPC over some overlay protocol like Stratum
 
 #### Implementations 
+* [libbitcoin-client](https://libbitcoin.org) - client to call the libbitcoin-server. 
+* [node-electrum-client](https://github.com/you21979/node-electrum-client)
+* [electrum](https://github.com/spesmilo/electrum)
+* [rust-electrumx-client)](https://github.com/evgeniy-scherbina/rust-electrumx-client) 
+* [electrum-wallet-chrome-extension](https://github.com/anfedorov/electrum-wallet-chrome-extension) 
+* [electrum-btx](https://github.com/LIMXTEC/electrum-btx) 
+* [electrumjs](https://github.com/akshatmittal/electrumjs)
 
 ### Moving towards an inter-operable client server standard
-As seen above, many of the current server implementations follow their own standard/protocol. There might an opportunity to for the industry to move towards an open Bitcoin Server standard where clients and servers can interoperate across implementations. Stratum seems to be in the best position (the only one?) to be adopted as that open standard. There is work needed to be done in terms of client implementations in multiple languages, API documentation, tooling around server deployment across different compute form factors
+As seen above, many of the current server implementations follow their own custom standard/protocol for the client-server interaction. There might an opportunity for the industry to move towards an open Bitcoin Server standard where clients and servers can interoperate across implementations. Stratum seems to be in the best position (the only one?) to be adopted as that open standard. 
+### What needs to be done?
 
-### Auxilliary Thoughts
-soverignty level
-display in wallets whose node is being used (authenticty verified by: {random node|my node| company's node})
-
-### Pie in the Sky Vision
-A user buys a device like an echo show, plugs it in, connects it to wifi and the stats get presented on the screen with qr code for connection. 
-
-IBD and indexing happens and its ready to use. Can come preloaded with UTXO (assumeUTXO)
-
-They take their phone out and scan the code and you they are done. Sets up a lightning wallet as well as a simple cold storage and maybe accesss accounts through PLAID, and be able to buy. 
+*  Investigate if Stratum the best open standard for everyeone to adopt? What are its limitations? Do we need to add new APIs?
+* Multiple language/platform bindings for the clients
+* API documentation, tooling around server deployment across different compute form factors (plug and play node, docker, virtual compute, bare metal). 
