@@ -34,6 +34,8 @@ The following are the common implementations of a Bitcoin Server:
   
 * [libbitcoin](https://libbitcoin.org) - libbitcoin in a full re-implementation of the consensus rules but also comes built in with a Bitcoin Server that "exposes a custom query TCP API built based on the ZeroMQ networking stack. It supports server, and optionally client, identity certificates and wire encryption via CurveZMQ and the Sodium cryptographic library and supports simple and advanced scenarios, including stealth payment queries." 
 
+* [bitcore](https://github.com/bitpay/bitcore) - TODO: write a pagraph about this. 
+
 #### Hardware Nodes
 There are a number of plug and play devices that come with different types of Bitcoin Servers installed.
 
@@ -47,7 +49,7 @@ There are a number of plug and play devices that come with different types of Bi
 A *Bitcoin Client* is defined as a software library that provides the programatic primitives for a consuming application to connect to and interact with a *Bitcoin Server*. Some features that a Bitcoin Client should provide are:
 
 1. Key Generation and Management Utilities ("wallet")
-2. P2P/Serilization/Deserilization, Mempool interaction
+2. P2P/Serialization/Deserialization, Mempool interaction
 3. Node Communication: JSON-RPC over some overlay protocol like Stratum
 
 TODO: expand further on the above points
