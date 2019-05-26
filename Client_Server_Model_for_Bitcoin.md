@@ -1,7 +1,7 @@
 #  A Client-Server Model for Bitcoin (DRAFT)
 
 ### Purpose
-The purpose of this document is to look at Bitcoin Nodes and applications through a client-server paradigm where the server is a "wrapper" around a Bitcoin Node and the client is an SDK which provides the programatic primitives for consuming applications to interact with the server. (Think about this as similar to an AWS service and client SDK, but in the case of Bitcoin, the server is run by the users of the client application and is not a centralized server run by a third party). Later in this document, we explore the anatomy of a Bitcoin Server and Bitcoin Client and look at some common implementations. 
+The purpose of this document is to look at Bitcoin Nodes and applications through a client-server paradigm where the server is a "wrapper" around a Bitcoin Node and the client is an SDK which provides the programatic primitives for consuming applications to interact with the server. (Think about this as similar to an AWS service and client SDK, but in the case of Bitcoin, the server is run by the users of the client application and is not a centralized service run by a third party). Later in this document, we explore the anatomy of a Bitcoin Server and Bitcoin Client and look at some common implementations. 
 
 For more context on how and why Bitcoin Applications needs to connect and interact with a Bitcoin Node, see the [writeup on connecting to a bitcoin node](https://github.com/johnyukon21/johnyukon21.github.io/blob/master/connecting_to_a_bitcoin_node.md)
 
