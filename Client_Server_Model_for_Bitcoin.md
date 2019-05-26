@@ -32,7 +32,7 @@ The following are the common implementations of a Bitcoin Server:
   * [electrum-personal-server](https://github.com/chris-belcher/electrum-personal-server)
   * [electrs](https://github.com/romanz/electrs)
   
-* [libbitcoin](https://libbitcoin.org) - libbitcoin in a full re-implementation of the consensus rules but also comes built in which a Bitcoin Server that "exposes a custom query TCP API built based on the ZeroMQ networking stack. It supports server, and optionally client, identity certificates and wire encryption via CurveZMQ and the Sodium cryptographic library and supports simple and advanced scenarios, including stealth payment queries." 
+* [libbitcoin](https://libbitcoin.org) - libbitcoin in a full re-implementation of the consensus rules but also comes built in with a Bitcoin Server that "exposes a custom query TCP API built based on the ZeroMQ networking stack. It supports server, and optionally client, identity certificates and wire encryption via CurveZMQ and the Sodium cryptographic library and supports simple and advanced scenarios, including stealth payment queries." 
 
 #### Hardware Nodes
 There are a number of plug and play devices that come with different types of Bitcoin Servers installed.
