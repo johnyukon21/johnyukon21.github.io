@@ -9,7 +9,7 @@ We also look at how the industry can move to towards an open standard for the cl
 
 1. Enabling different client and server implementations to be able to inter-operate. eg. have Green wallet connect to a Casa Node. This will lead to a less balkanized eco-system that will ultimately give users more options in mixing and matching servers and clients and hopefully increase the number of users running fully validating nodes. 
 
-2. Have standard clients in multiple language that developers can add a dependency to, and start interacting with Bitcoin (quick developer onboarding). 
+2. Have standard clients with multiple language bindings that developers can add a dependency to, and start interacting with Bitcoin (quick developer onboarding). 
 
 ### The Anatomy of a Bitcoin Server
 A *Bitcoin Server* is defined as an application that runs alongside a Bitcoin Node and exposes the blockchain data on the node through APIs accessible through the network. Some features that a Bitcoin Server should provide are:
