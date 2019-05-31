@@ -18,6 +18,8 @@ Bob buys a device that runs a bitcoin node and server (something that look like 
 
 Alice is Bob's friend who he got into Bitcoin. Alice trusts Bob and asks Bob if she can use his node. Bob shares a link with Alice that she can use to connect to Bob's node till she gets her own at which point Bob can revoke her acccess. 
 
+Alice, being a developer, wants to build her own app/wallet that can connect to a node using the same protocol. She adds one of the client libraries to her development environment and can start coding right away calling the APIs that the client library exposes as long as a backend server is available to connect to. 
+
 ### The Anatomy of a Bitcoin Server
 A *Bitcoin Server* is defined as an application that runs alongside a Bitcoin Node and exposes the blockchain data on the node through APIs accessible through the network. Some features that a Bitcoin Server should provide are:
 
