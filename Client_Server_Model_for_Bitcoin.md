@@ -17,9 +17,10 @@ A *Bitcoin Server* is defined as an application that runs alongside a Bitcoin No
 * AuthN and AuthZ - the server should only process authenticated and authorized requests.
 * DDOS protection - given that the server endpoint might be exposed on the public Internet, DDOS protections should be in place.
 * Encrypted communication/TOR - communication between the client and the server should be encrypted. 
-* Secure/Hardened APIs - the exposes APIs should be hardened to the point that there are protections against malicious clients.
+* Secure/Hardened/Standardized APIs - the exposes APIs should be hardened to the point that there are protections against malicious clients. 
 * Blockchain Data Indexing - depending on the usecases that the server is supporting (single xpub, multiple xpub, block explorer) it needs different degrees of indexing. 
-* Inbound connectivity on the internet/TOR - the node should be able to accept inbound connections on the public internet.
+* Inbound routeablity on the internet/TOR - the node should be able to accept inbound connections on the public internet.
+* Network communication protocol  - the APIs exposed by the server should be callable in a pre-defined protocol (eg REST, Stratum)
 
 #### Implementations
 The following are the common implementations of a Bitcoin Server:
@@ -48,7 +49,7 @@ A *Bitcoin Client* is defined as a software library that provides the programati
 
 1. Key Generation and Management Utilities ("wallet")
 2. P2P/Serialization/Deserialization, Mempool interaction
-3. Node Communication: JSON-RPC over some overlay protocol like Stratum
+3. Server Communication: be able to communicate to the server APIs via the supported network protocol
 
 #### Implementations 
 * [libbitcoin-client](https://libbitcoin.org) - client to call the libbitcoin-server. 
@@ -61,9 +62,10 @@ A *Bitcoin Client* is defined as a software library that provides the programati
 * [bitcore-wallet-client](https://github.com/bitpay/bitcore/tree/master/packages/bitcore-wallet-client) - client for calling the bitcore wallet services. 
 
 ### Moving towards an inter-operable client server standard
-As seen above, many of the current server implementations follow their own custom standard/protocol for the client-server interaction. There might an opportunity for the industry to move towards an open Bitcoin Server standard where clients and servers can interoperate across implementations. Stratum seems to be in the best position (the only one?) to be adopted as that open standard. 
+As seen above, many of the current server implementations follow their own custom standard/protocol for the client-server interaction. There might an opportunity for the industry to move towards an open Bitcoin Server standard where clients and servers can interoperate across implementations. 
 
 ### What needs to be done?
-*  Investigate if Stratum the best open standard for everyone to adopt? What are its limitations? Do we need to add new APIs?
+* All aspects mentioned in the "The Anatomy of a Bitcoin Server" above should be standardized. What standards/implementations should be use as a starting point for each of them?
+* Investigate if stratum is a good network communication protocol (used in electrum)? What are its limitations? Do we need to add new APIs? Does BetterHash work here or is that purely to be used in the context of mining pools?
 * Multiple language/platform bindings for the clients
 * API documentation, tooling around server deployment across different compute form factors (plug and play node, docker, virtual compute, bare metal). 
