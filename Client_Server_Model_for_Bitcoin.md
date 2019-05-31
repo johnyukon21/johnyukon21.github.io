@@ -74,7 +74,7 @@ A *Bitcoin Client* is defined as a software library that provides the programati
 As seen above, many of the current server implementations follow their own custom standard/protocol for the client-server interaction. There might an opportunity for the industry to move towards an open Bitcoin Server standard where clients and servers can interoperate across implementations. 
 
 ### What needs to be done?
-* All aspects mentioned in the "The Anatomy of a Bitcoin Server" above should be standardized. What standards/implementations should be use as a starting point for each of them?
+* All aspects mentioned in the "The Anatomy of a Bitcoin Server" above should be standardized. What standards/implementations should be used as a starting point for each of them?
 * Investigate if stratum is a good network communication protocol (used in electrum)? What are its limitations? Do we need to add new APIs? Does BetterHash work here or is that purely to be used in the context of mining pools?
 * Multiple language/platform bindings for the clients
 * API documentation, tooling around server deployment across different compute form factors (plug and play node, docker, virtual compute, bare metal). 
