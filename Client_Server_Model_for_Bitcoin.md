@@ -26,7 +26,7 @@ A *Bitcoin Server* is defined as an application that runs alongside a Bitcoin No
 * AuthN and AuthZ - the server should only process authenticated and authorized requests.
 * DDOS protection - given that the server endpoint might be exposed on the public Internet, DDOS protections should be in place.
 * Encrypted communication/TOR - communication between the client and the server should be encrypted. 
-* Secure/Hardened/Standardized APIs - the exposes APIs should be hardened to the point that there are protections against malicious clients. 
+* Secure/Hardened/Standardized APIs - the exposed APIs should be hardened to the point that there are protections against malicious clients. 
 * Blockchain Data Indexing - depending on the usecases that the server is supporting (single xpub, multiple xpub, block explorer) it needs different degrees of indexing. 
 * Inbound routeablity on the internet/TOR - the node should be able to accept inbound connections on the public internet.
 * Network communication protocol  - the APIs exposed by the server should be callable in a pre-defined protocol (eg REST, Stratum)
