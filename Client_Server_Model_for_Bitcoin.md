@@ -22,7 +22,7 @@ Alice is Bob's friend who he got into Bitcoin. Alice trusts Bob and asks Bob if 
 
 Alice, being a developer, wants to build her own app/wallet that can connect to a node using the *RemoteNode* protocol. She adds one of the client libraries to her development environment and can start coding right away calling the APIs that the client library exposes to connect to an available backend server. 
 
-### The Anatomy of a *RemoteNode* Server
+### *RemoteNode* Server
 A *RemoteNode* server is defined as an application that runs alongside a Bitcoin Node and exposes the blockchain data on the node through APIs accessible through the network. Some features that a *RemoteNode* server should provide are:
 
 * AuthN and AuthZ - the server should only process authenticated and authorized requests.
@@ -61,7 +61,7 @@ There are a number of plug and play devices that come with different types of Bi
 * [Dojo](https://samouraiwallet.com/dojo) - Bitcoin Node that uses a custom protocol for the Samourai wallet to connect to. 
 * [Bitseed](https://bitseed.org/product/bitseed-3/) - TODO (bitseed website is down)
 
-### The Anatomy of a *RemoteNode* Client
+### *RemoteNode* Client
 A *RemoteNode* client is defined as a software library that provides the programatic primitives for a consuming application to connect to and interact with a *RemoteNode* server. The main function of the client is to provide APIs that a consuming program can use to remotely connect to the node. The client should also expose the programatic primitives required for the application to set up the node URL, authenticate itself to the node, sign requests etc. 
 
 #### Implementations 
@@ -74,10 +74,10 @@ The following are the currently available common implementations that provide fu
 NOTE: if we step back and look at all the features a more general bitcoin client or application would need, there are other components like 1. Key Generation and Management Utilities ("wallet") 2. Transaction Creation/Signing and Broadcasting 3. P2P connection/Serialization/Deserialization, Mempool interaction 4. UTXO management etc. Those functions are complementary to the *RemoteNode* client and therefore out of scope of the *RemoteNode* client itself. However it is worth noting that there are various implementations of these functions available today like [rust-bitcoin](https://github.com/rust-bitcoin/rust-bitcoin), [nbitcoin](https://github.com/MetacoSA/NBitcoin), [libwally](https://github.com/ElementsProject/libwally-core) and [bitcoinj](https://bitcoinj.github.io). 
 
 ### Moving towards an inter-operable client server standard
-As seen above, many of the current server implementations follow their own custom standard/protocol for the client-server interaction. There might an opportunity for the industry to move towards an open standard (*RemoteNode*) where clients and servers can interoperate across implementations. 
+As described above, many of the current server implementations follow their own custom standard/protocol for the client-server interaction. There might an opportunity for the industry to move towards an open standard (*RemoteNode*) where clients and servers can interoperate across implementations. 
 
 ### What needs to be done?
-* All aspects mentioned in the "The Anatomy of a *RemoteNode* Server" above should be standardized. What standards/implementations should be used as a starting point for each of them?
+* All aspects mentioned in the "*RemoteNode* Server" above should be standardized. What standards/implementations should be used as a starting point for each of them?
 * Investigate if stratum is a good network communication protocol (used in electrum)? What are its limitations? Do we need to add new APIs? Does BetterHash work here or is that purely to be used in the context of mining pools?
 * Multiple language/platform bindings for the clients
 * API documentation, tooling around server deployment across different compute form factors (plug and play node, docker, virtual compute, bare metal). 
