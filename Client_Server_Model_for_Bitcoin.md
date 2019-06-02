@@ -28,24 +28,32 @@ A *Bitcoin Node Server* ("server") is defined as an application that runs alongs
 * DDOS protection - given that the server endpoint might be exposed on the public Internet, DDOS protections should be in place.
 * Encrypted communication/TOR - communication between the client and the server should be encrypted. 
 * Secure/Hardened/Standardized APIs - the exposed APIs should be hardened to the point that there are protections against malicious clients. 
-* Blockchain Data Indexing - depending on the usecases that the server is supporting (single xpub, multiple xpub, block explorer) it needs different degrees of indexing. 
+* Blockchain Data Indexing - depending on the usecases that the server is supporting (single xpub, multiple xpubs, block explorer) it needs different degrees and types of indexing. 
 * Inbound route-ablity on the internet/TOR - the node should be able to accept inbound connections on the public internet.
 * Network communication protocol  - the APIs exposed by the server should be callable in a pre-defined protocol (eg REST, Stratum)
 
-NOTE: This is not referring to any kind of re-implementation of the consensus rules, a *Bitcoin Node Server* is simply a way to enable remote applications to interact with a node over the public internet in a standard way. 
+NOTE: This is not referring to any kind of re-implementation of the consensus rules, a *Bitcoin Node Server* is simply a way to enable remote applications to interact with a node over the public internet in a standard way. Within that context, it is also important to keep in mind that there are alternative implementations of the consensus rules that come with its own server built in. eg. libbitcoin, bcoin, btcd
 
 #### Implementations
-The following are the currently available common implementations of a *Bitcoin Node Server* :
+The following are the currently available common implementations of a *Bitcoin Node Server*:
 
 * [electrum](https://electrum.org/#home) - there are multiple implementations of the electrum server that implements the Stratum protocol. Clients to can connect to electrum servers and access the underlying Bitcoin Node. 
   * [electrum-server](https://github.com/spesmilo/electrum-server) 
   * [electrumx](https://github.com/kyuupichan/electrumx/)
   * [electrum-personal-server](https://github.com/chris-belcher/electrum-personal-server)
   * [electrs](https://github.com/romanz/electrs)
-  
-* [libbitcoin](https://libbitcoin.org) - libbitcoin in a full re-implementation of the consensus rules but also comes built in with a Bitcoin Server that "exposes a custom query TCP API built based on the ZeroMQ networking stack. It supports server, and optionally client, identity certificates and wire encryption via CurveZMQ and the Sodium cryptographic library and supports simple and advanced scenarios, including stealth payment queries." 
 
 * [bitcore](https://github.com/bitpay/bitcore) - Bitcore is a similar wrapper service around the Bitcoin Core Node that provides REST APIs that clients can call. 
+
+The following are the current alternative implementations of the consensus rules, that come with a built in server:
+
+* [libbitcoin](https://libbitcoin.org) - libbitcoin in a full re-implementation of the consensus rules but also comes built in with a Bitcoin Server that "exposes a custom query TCP API built based on the ZeroMQ networking stack. It supports server, and optionally client, identity certificates and wire encryption via CurveZMQ and the Sodium cryptographic library and supports simple and advanced scenarios, including stealth payment queries." 
+* [bcoin](https://bcoin.io/) - an alternative implementation of the bitcoin protocol, written in node.js which comes with a an HTTP server that listens on the standard RPC port. It exposes a REST JSON, as well as a JSON-RPC api.
+* [btcd](https://github.com/btcsuite/btcd) - btcd is an alternative full node bitcoin implementation written in Go that comes with a TLS-enabled JSON-RPC interface that provides access to the APIs through both HTTP POST requests and Websockets.
+
+
+
+There are also alternative 
 
 #### Hardware Nodes
 There are a number of plug and play devices that come with different types of Bitcoin Servers installed.
