@@ -79,5 +79,5 @@ As described above, many of the current server implementations follow their own 
 ### What needs to be done?
 * All aspects mentioned in the "*RemoteNode* Server" above should be standardized. What standards/implementations should be used as a starting point for each of them?
 * Investigate if stratum is a good network communication protocol (used in electrum)? What are its limitations? Do we need to add new APIs? Does BetterHash work here or is that purely to be used in the context of mining pools?
-* Multiple language/platform bindings for the clients
+* Multiple language/platform bindings for the clients. If we use something like gRPC we get this (and authN, authZ) for free. 
 * API documentation, tooling around server deployment across different compute form factors (plug and play node, container, virtual compute, bare metal). 
