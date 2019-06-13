@@ -11,7 +11,7 @@ The goals of the the *RemoteNode* standard are:
 
 2. Have standard clients with multiple language bindings that developers can add a dependency to, and start interacting with Bitcoin (quick developer on-boarding). 
 
-3. Providing a well documented and implemented open standard that if adopted by the community, will enable different client and server implementations to be able to inter-operate. eg. have Green wallet connect to a Casa Node. This will lead to a less balkanized eco-system that will ultimately give users more options in mixing and matching servers and clients and possibly increase the number of users running fully validating nodes. 
+3. Providing a well documented and implemented open standard that if adopted by the community, will enable different client and server implementations to be able to inter-operate. eg. have Green wallet connect to a Casa Node (assuming both Green and Casa supports *RemoteNode*). This will lead to a less balkanized eco-system that will ultimately give users more options in mixing and matching servers and clients and possibly increase the number of users running fully validating nodes. 
 
 ### Vision
 In the fullness of time, the vision that this idea hopes to drive is as follows:
@@ -28,10 +28,10 @@ A *RemoteNode* server is defined as an application that runs alongside a Bitcoin
 * AuthN and AuthZ - the server should only process authenticated and authorized requests.
 * DDOS protection - given that the server endpoint might be exposed on the public Internet, DDOS protections should be in place.
 * Encrypted communication/TOR - communication between the client and the server should be encrypted. 
-* Secure/Hardened/Standardized APIs - the exposed APIs should be hardened to the point that there are protections against malicious clients. 
+* Secure/Hardened/Standardized APIs - the exposed APIs should be hardened to the point that there are protections against malicious clients. These can be just the Bitcoin Core RPC APIs or a higher level set of APIs like electrum.
 * Blockchain Data Indexing - depending on the usecases that the server is supporting (single xpub, multiple xpubs, block explorer) it needs different degrees and types of indexing. 
 * Inbound route-ablity on the internet/TOR - the node should be able to accept inbound connections on the public internet.
-* Network communication protocol  - the APIs exposed by the server should be callable in a pre-defined protocol (eg REST, Stratum)
+* Network communication protocol  - the APIs exposed by the server should be callable in a pre-defined protocol (eg REST, Stratum, gRPC)
 
 NOTE: The *RemoteNode* server is not a re-implementation of the consensus rules, it is simply a way to enable remote applications to interact with a node over the public internet. That said, it is also important to keep in mind that there are alternative implementations of the consensus rules that come with its own server built in. eg. libbitcoin, bcoin, btcd
 
